@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1647575694595') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-BasicIcons-all-:before {
+  content: "\e858";
+}
+
+.icon-BasicIcons-all-1:before {
+  content: "\e859";
+}
+
+.icon-BasicIcons-all-2:before {
+  content: "\e85a";
+}
+
+.icon-BasicIcons-all-3:before {
+  content: "\e85b";
+}
+
+.icon-BasicIcons-all-4:before {
+  content: "\e85c";
+}
+
+.icon-BasicIcons-all-5:before {
+  content: "\e85d";
+}
+
+.icon-BasicIcons-all-6:before {
+  content: "\e85e";
+}
+
+.icon-BasicIcons-all-7:before {
+  content: "\e85f";
+}
+
+.icon-BasicIcons-all-8:before {
+  content: "\e860";
+}
+
+.icon-BasicIcons-all-9:before {
+  content: "\e861";
+}
+
+.icon-BasicIcons-all-10:before {
+  content: "\e862";
+}
+
+.icon-BasicIcons-all-11:before {
+  content: "\e863";
+}
+
+.icon-BasicIcons-all-12:before {
+  content: "\e864";
+}
+
+.icon-BasicIcons-all-13:before {
+  content: "\e865";
+}
+
