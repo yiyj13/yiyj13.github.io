@@ -326,7 +326,7 @@ body a:hover {
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 code {
-  color: inherit;
+  color: #e05b35;
 }
 table {
   font-size: inherit;
@@ -1969,7 +1969,7 @@ note-default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--text-color);
+  color: $text_color;
   font-weight: bold;
 }
 .link-intro {
