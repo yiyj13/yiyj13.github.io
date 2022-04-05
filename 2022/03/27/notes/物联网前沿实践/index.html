@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yiyj13.github.io/img/IoT.jpeg">
 <meta property="article:published_time" content="2022-03-27T13:12:43.000Z">
-<meta property="article:modified_time" content="2022-04-05T08:32:47.721Z">
+<meta property="article:modified_time" content="2022-04-05T12:38:08.209Z">
 <meta property="article:author" content="yiyj13">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月5日 下午
+                  本文最后更新于：2022年4月5日 晚上
                 
               </p>
             
@@ -346,7 +346,7 @@
 <p><strong>狭义信道：</strong> 按照传输媒质来划分，可以分为有线信道、无线信道和存储信道三类。值得注意的是，磁带、磁盘等数据存储媒质也可以被看作是一种通信信道。将数据写入存储媒质的过程即等效于发射机将信号传输到信道的过程，将数据从存储媒质读出的过程即等效于接收机从信道接收信号的过程。</p>
 <p><strong>广义信道：</strong> 按照信道功能进行划分，可以分为调制信道和编码信道两类。调制信道是指信号从调制器的输出端传输到解调器的输入端经过的部分。对于调制和解调的研究者来说，信号在调制信道上经过的传输媒质和变换设备都对信号做出了某种形式的变换，研究者只关心这些变换的输入和输出的关系，并不关心实现这一系列变换的具体物理过程。编码信道是指数字信号由编码器输出端传输到译码器输入端经过的部分。对于编译码的研究者来说，编码器输出的数字序列经过编码信道上的一系列变换之后，在译码器的输入端成为另一组数字序列，研究者只关心这两组数字序列之间的变换关系，而并不关心这一系列变换发生的具体物理过程，甚至并不关心信号在调制信道上的具体变化。</p>
 <p><img src="https://pic.imgdb.cn/item/623d73e127f86abb2ae091f4.jpg" srcset="/img/load.gif" lazyload alt="" /></p>
-<h3 id="信道冲击响应cir"><a class="markdownIt-Anchor" href="#信道冲击响应cir"></a> 信道冲击响应(CIR)</h3>
+<h2 id="42-信道冲击响应cir"><a class="markdownIt-Anchor" href="#42-信道冲击响应cir"></a> 4.2 信道冲击响应(CIR)</h2>
 <p>信道研究的第一步，是要建立对信道的描述，即表示出任意输入信号通过该信号后的响应信号。但可能的输入信号波形繁多，因此我们必须找到可用于构造任意波形的”单位1“。</p>
 <p>单位脉冲信号就是理想的”单位1“：我们可以将任意信号可以分解成若干不同时延的单位脉冲信号的线性叠加，如此便可以处理线性信道了。</p>
 <p>如，离散形式的单位脉冲信号可以表示为：</p>
@@ -358,10 +358,10 @@
 \right.
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.00003em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <p><img src="https://pic.imgdb.cn/item/623d797c27f86abb2affef92.jpg" srcset="/img/load.gif" lazyload alt="" /></p>
-<h3 id="信道频率响应cfr"><a class="markdownIt-Anchor" href="#信道频率响应cfr"></a> 信道频率响应(CFR)</h3>
-<h3 id="信道状态信息csi"><a class="markdownIt-Anchor" href="#信道状态信息csi"></a> 信道状态信息（CSI）</h3>
+<h2 id="43-信道频率响应cfr"><a class="markdownIt-Anchor" href="#43-信道频率响应cfr"></a> 4.3 信道频率响应(CFR)</h2>
+<h2 id="44-信道状态信息csi"><a class="markdownIt-Anchor" href="#44-信道状态信息csi"></a> 4.4 信道状态信息（CSI）</h2>
 <p>参考：<a href="ps.zpj.io">ps.zpj.io</a></p>
-<h3 id="信息状态估计"><a class="markdownIt-Anchor" href="#信息状态估计"></a> 信息状态估计</h3>
+<h2 id="45-信息状态估计"><a class="markdownIt-Anchor" href="#45-信息状态估计"></a> 4.5 信息状态估计</h2>
 <p>由于无线环境数复杂多变，信号传播到达接收端时，其幅度、相位和频率都会发生很大的改变。因此，为了尽可能恢复出原始信号，我们需要进行信道估计和信道均衡。一个良好的<strong>估计和均衡算法</strong>对于接收端的性能来说至关重要，决定了信号能否最终被解码出来。信道估计的本质，是表示出信道的单位脉冲响应CIR。</p>
 <table>
 <thead>
@@ -466,7 +466,7 @@ S_{out}=S_{square}(f_0t)⋅S_in≈cos(f_0t)⋅S_{in}=\frac{1}{2}(e^{j2πf_0t}+^{
 <h1 id="9-lora"><a class="markdownIt-Anchor" href="#9-lora"></a> 9. LoRa</h1>
 <h2 id="91-lora发展简史"><a class="markdownIt-Anchor" href="#91-lora发展简史"></a> 9.1 LoRa发展简史</h2>
 <p>LoRa 是 Long Range Communication的简称，狭义上的LoRa指的是一种物理层的信号调制方式，是 Semtech 公司定义的一种基于Chirp扩频技术的物理层调制方式，可达到-148 dBm的接收灵敏度，以偏小的数据速率（0.3-50kbps）换取更高的通讯距离（市内3km，郊区15km）和低功耗（电池供电在特定条件下可以工作长达10年）。 从系统角度看，LoRa也指由终端节点、网关、网络服务器、应用服务器所组成的一种网络系统架构：LoRa定义了不同设备在系统中的分工与作用，规定了数据在系统中流动与汇聚的方式。 从应用角度看，LoRa为物联网应用提供了一种低成本、低功耗、远距离的数据传输服务：LoRa在使用10mW射频输出功率的情况下，可以提供超过25km视线传输距离，从而支持大量广域低功耗物联网应用。</p>
-<h2 id="各种通信方式比较"><a class="markdownIt-Anchor" href="#各种通信方式比较"></a> * 各种通信方式比较</h2>
+<h1 id="各种通信方式比较"><a class="markdownIt-Anchor" href="#各种通信方式比较"></a> * 各种通信方式比较</h1>
 <p><img src="https://pic.imgdb.cn/item/62407be927f86abb2a9b35f8.jpg" srcset="/img/load.gif" lazyload alt="" /></p>
 
             </div>
