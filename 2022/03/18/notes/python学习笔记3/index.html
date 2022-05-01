@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yiyj13.github.io/img/cover8.jpg">
 <meta property="article:published_time" content="2022-03-18T11:13:13.000Z">
-<meta property="article:modified_time" content="2022-05-01T09:29:12.374Z">
+<meta property="article:modified_time" content="2022-05-01T12:14:42.506Z">
 <meta property="article:author" content="yiyj13">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月1日 下午
+                  本文最后更新于：2022年5月1日 晚上
                 
               </p>
             
@@ -296,7 +296,7 @@
 <p>生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>([]),Iterator)<span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">isinstance</span>(<span class="hljs-built_in">iter</span>([]),Iterator))<span class="hljs-comment"># True  </span><br><span class="hljs-comment">#可用iter()把Iterable变成Iterator</span><br></code></pre></td></tr></table></figure>
 <p>Why <code>(list,dict,str)</code> are not Iterator：Iterator对象表示一个数据流，可被<code>next()</code>调用并返回下一个数据直到无数据抛出<code>StopIteration</code>。可以把这个数据流看作一个有序序列，但我们却不能提前知道序列的长度，只能不断通过<code>next()</code>函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。</p>
-<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary:</h3>
+<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
 <ol>
 <li>
 <p>凡可用作for循环的对象都是Iterable</p>

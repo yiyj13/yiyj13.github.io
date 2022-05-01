@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yiyj13.github.io/img/cover9.jpg">
 <meta property="article:published_time" content="2022-03-19T00:13:13.000Z">
-<meta property="article:modified_time" content="2022-05-01T12:10:44.001Z">
+<meta property="article:modified_time" content="2022-05-01T12:15:06.918Z">
 <meta property="article:author" content="yiyj13">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -293,7 +293,7 @@
 <h2 id="nonlocal"><a class="markdownIt-Anchor" href="#nonlocal"></a> nonlocal</h2>
 <p>相当于C++中的static。内层函数引用了外层函数的局部变量，如果对外层变量赋值，Python解释器会把x当作函数的局部变量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">inc</span>():<br>    x = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>():<br>        <span class="hljs-comment"># 仅读取x的值:</span><br>        <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> fn<br>f = inc()<br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">inc2</span>():<br>    x = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>():<br>        <span class="hljs-keyword">nonlocal</span> x<span class="hljs-comment"># 加上才不会报错</span><br>        x = x + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> x<br>    <span class="hljs-keyword">return</span> fn<br><br>f = inc2()<br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 1</span><br><span class="hljs-built_in">print</span>(f()) <span class="hljs-comment"># 2</span><br></code></pre></td></tr></table></figure>
-<p><strong>Summary:</strong></p>
+<p><strong>Summary</strong></p>
 <p>一个函数可以返回一个计算结果，也可以返回一个函数。</p>
 <p>返回一个函数时，牢记<strong>该函数并未执行，返回函数中不要引用任何可能会变化的变量</strong>。</p>
 <h2 id="匿名函数lambda-λ"><a class="markdownIt-Anchor" href="#匿名函数lambda-λ"></a> 匿名函数lambda λ</h2>
@@ -306,7 +306,7 @@
 <h2 id="偏函数"><a class="markdownIt-Anchor" href="#偏函数"></a> 偏函数</h2>
 <p>可为原函数中的参数拟定一个初始值，并将带着初始值的原函数返回。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> partial<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;111&#x27;</span>,base=<span class="hljs-number">2</span>))<span class="hljs-comment"># 7     2进制转换为10进制 int()中base默认值为10</span><br>int2 = functools.partial(<span class="hljs-built_in">int</span>,base=<span class="hljs-number">2</span>)<span class="hljs-comment"># 创建一个偏函数 省去了自己的定义 同时也可以接收其他参数 int2(&#x27;12223&#x27;,base=10)</span><br><span class="hljs-comment"># 相当于 kw = &#123;&#x27;base&#x27;:2&#125; int(&#x27;111&#x27;,**kw)</span><br>max2 = functools.partial(<span class="hljs-built_in">max</span>,<span class="hljs-number">10</span>)<span class="hljs-comment"># 实际上会把10作为*args的一部分自动加到左边</span><br><span class="hljs-comment"># 相当于 args =(10,5,6,7) max(*args)</span><br><span class="hljs-built_in">print</span>(max2(<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>))<span class="hljs-comment"># 10</span><br></code></pre></td></tr></table></figure>
-<h3 id="不同类型参数对偏函数的影响"><a class="markdownIt-Anchor" href="#不同类型参数对偏函数的影响"></a> 不同类型参数对偏函数的影响：</h3>
+<h3 id="不同类型参数对偏函数的影响"><a class="markdownIt-Anchor" href="#不同类型参数对偏函数的影响"></a> 不同类型参数对偏函数的影响</h3>
 <p>位置参数：当原函数中的形参为位置参数的时候，偏函数所定义的参数就会被锁死，无法更改。</p>
 <p>关键字参数：当定义偏函数时，以关键字的方式初始化参数的值，则调用偏函数时，可以以关键字传参的方式更改参数值。</p>
 <p>可变参数：当形参为可变参数的时候，定义偏函数时初始化的参数值，会被插入可迭代对象中，如果调用偏函数时又传递了新的参数，则会添加到队尾。</p>
