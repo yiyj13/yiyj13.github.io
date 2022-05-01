@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yiyj13.github.io/img/cover7.jpg">
 <meta property="article:published_time" content="2022-03-18T09:24:20.000Z">
-<meta property="article:modified_time" content="2022-05-01T09:09:45.855Z">
+<meta property="article:modified_time" content="2022-05-01T12:13:18.431Z">
 <meta property="article:author" content="yiyj13">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.4k 字
+      4.3k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30 分钟
+      29 分钟
     </span>
   
 
@@ -260,7 +260,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月1日 下午
+                  本文最后更新于：2022年5月1日 晚上
                 
               </p>
             
@@ -270,7 +270,7 @@
 <h1 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h1>
 <h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_abs</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">if</span> x&gt;=<span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> -x<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> x<br><span class="hljs-built_in">print</span>(my_abs(<span class="hljs-number">8</span>)) <span class="hljs-comment"># -8</span><br></code></pre></td></tr></table></figure>
-<p>也可以把my_abs()<a target="_blank" rel="noopener" href="http://xn--abstest-e73kkep9o6qhhv6apyag12hxs7c.py">的函数定义保存为abstest.py</a>，在该文件的当前目录下启动python解释器，导入my_abs()</p>
+<p>也可以把my_abs()<a target="_blank" rel="noopener" href="http://xn--abstest-e73kkep9o6qhhv6apyag12hxs7c.py">的函数定义保存为abstest.py</a>，在该文件的当前目录下启动python解释器，导入<code>my_abs()</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> abstest <span class="hljs-keyword">import</span> my_abs<br></code></pre></td></tr></table></figure>
 <h3 id="参数检查"><a class="markdownIt-Anchor" href="#参数检查"></a> 参数检查</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_abs2</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">isinstance</span>(x, (<span class="hljs-built_in">int</span>, <span class="hljs-built_in">float</span>)):<span class="hljs-comment"># 数据类型检查</span><br>        <span class="hljs-keyword">raise</span> TypeError(<span class="hljs-string">&#x27;bad operand type&#x27;</span>)<br>    <span class="hljs-keyword">if</span> x &gt;= <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> x<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> -x<br></code></pre></td></tr></table></figure>
@@ -288,14 +288,14 @@
 <p>定义默认参数要牢记一点：默认参数必须指向不变对象！在编写程序时，如果可以设计一个不变对象，那就尽量设计成不变对象。</p>
 <p><strong>可变参数</strong>：传入的参数个数是可变的（0、1、2…）这些可变参数在函数调用时自动组装为一个<code>tuple</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">calc</span>(<span class="hljs-params">*numbers</span>):<span class="hljs-comment"># 加了一个* 在函数内部，参数numbers接收到的是一个tuple，避免了调用前要组装出一个list/tuple</span><br>    <span class="hljs-built_in">sum</span>=<span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> numbers:<br>        <span class="hljs-built_in">sum</span>=<span class="hljs-built_in">sum</span>+n*n<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br>sequence=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<span class="hljs-comment"># 若已有一个list/tuple，要调用一个可变参数怎么办？</span><br><span class="hljs-built_in">print</span>(calc(sequence[<span class="hljs-number">0</span>],sequence[<span class="hljs-number">1</span>],sequence[<span class="hljs-number">1</span>]))<span class="hljs-comment"># 9 1+2x2+2x2=9 有点繁琐？</span><br><span class="hljs-built_in">print</span>(calc(*sequence))<span class="hljs-comment"># Python允许在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去。这种写法相当有用且常见。</span><br></code></pre></td></tr></table></figure>
-<p>**关键字参数：**允许传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个<code>dict</code></p>
+<p><strong>关键字参数</strong>：允许传入任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个<code>dict</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">person</span>(<span class="hljs-params">name,age,**kw</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;name:&#x27;</span>,name,<span class="hljs-string">&#x27;age:&#x27;</span>,age,<span class="hljs-string">&#x27;other:&#x27;</span>,kw)<br>person(<span class="hljs-string">&#x27;Alice&#x27;</span>,<span class="hljs-number">20</span>)<br>person(<span class="hljs-string">&#x27;Bob&#x27;</span>,<span class="hljs-number">40</span>,gender=<span class="hljs-string">&#x27;M&#x27;</span>,job=<span class="hljs-string">&#x27;Professor&#x27;</span>)<span class="hljs-comment"># 除必选参数外，还可传入任意个数的关键字参数</span><br>extra=&#123;<span class="hljs-string">&#x27;city&#x27;</span>:<span class="hljs-string">&#x27;Beijing&#x27;</span>,job:<span class="hljs-string">&#x27;Engineer&#x27;</span>&#125;<br>person(<span class="hljs-string">&#x27;Jackie&#x27;</span>,<span class="hljs-number">23</span>,**extra)<span class="hljs-comment"># **extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数,是一份copy，改动kw不会影响函数外的extra</span><br></code></pre></td></tr></table></figure>
 <p>**命名关键字参数：**限制关键字参数的名字</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">people</span>(<span class="hljs-params">name,age,*,city,job</span>):<span class="hljs-comment"># *后的参数被视为命名关键字参数 可以有缺省值</span><br>    <span class="hljs-built_in">print</span>(name,age,city,job)<br>people(<span class="hljs-string">&#x27;Jack&#x27;</span>,<span class="hljs-number">24</span>,city=<span class="hljs-string">&#x27;Beijing&#x27;</span>,job=<span class="hljs-string">&#x27;Student&#x27;</span>)<span class="hljs-comment"># 命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错</span><br></code></pre></td></tr></table></figure>
 <h3 id="参数组合"><a class="markdownIt-Anchor" href="#参数组合"></a> 参数组合</h3>
 <p>⚠参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">f1</span>(<span class="hljs-params">a,b,c=<span class="hljs-number">0</span>,*args,**kw</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a =&#x27;</span>, a, <span class="hljs-string">&#x27;b =&#x27;</span>, b, <span class="hljs-string">&#x27;c =&#x27;</span>, c, <span class="hljs-string">&#x27;args =&#x27;</span>, args, <span class="hljs-string">&#x27;kw =&#x27;</span>, kw)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">f2</span>(<span class="hljs-params">a,b,c=<span class="hljs-number">0</span>,*,d,**kw</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a =&#x27;</span>, a, <span class="hljs-string">&#x27;b =&#x27;</span>, b, <span class="hljs-string">&#x27;c =&#x27;</span>, c, <span class="hljs-string">&#x27;d =&#x27;</span>, d, <span class="hljs-string">&#x27;kw =&#x27;</span>, kw)<br><span class="hljs-comment"># 函数调用时 解释器自动按照参数位置和参数名把对应的参数传进去</span><br>f1(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,c=<span class="hljs-number">3</span>)<span class="hljs-comment"># a = 1 b = 2 c = 3 args = () kw = &#123;&#125;</span><br>f1(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;b&#x27;</span>,x=<span class="hljs-number">99</span>)<span class="hljs-comment"># a = 1 b = 2 c = 3 args = (&#x27;a&#x27;, &#x27;b&#x27;) kw = &#123;&#x27;x&#x27;:99&#125;</span><br>f2(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, d=<span class="hljs-number">99</span>, ext=<span class="hljs-literal">None</span>)<span class="hljs-comment"># a = 1 b = 2 c = 0 d = 99 kw = &#123;&#x27;ext&#x27;: None&#125;</span><br>args=(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)<br>kw=&#123;<span class="hljs-string">&#x27;d&#x27;</span>:<span class="hljs-number">99</span>,<span class="hljs-string">&#x27;x&#x27;</span>:<span class="hljs-string">&#x27;#&#x27;</span>&#125;<br>f1(*args,**kw)<span class="hljs-comment"># a = 1 b = 2 c = 3 args = (4,) kw = &#123;&#x27;d&#x27;: 99, &#x27;x&#x27;: &#x27;#&#x27;&#125;</span><br>args2=(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<br>f2(*args2, **kw)<span class="hljs-comment"># a = 1 b = 2 c = 3 d = 99 kw = &#123;&#x27;x&#x27;: &#x27;#&#x27;&#125;</span><br><span class="hljs-comment"># 甚至通过一个tuple和dict，你也可以调用上述函数</span><br><span class="hljs-comment"># 所以，对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。</span><br><br></code></pre></td></tr></table></figure>
-<p><strong>Summary:</strong></p>
+<p><strong>Summary</strong></p>
 <p>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！</p>
 <p>*args是可变参数，args接收的是一个<code>tuple</code>;**kw是关键字参数，kw接收的是一个<code>dict</code>。</p>
 <p>可变参数既可以直接传入：<code>func(1, 2, 3)</code>，又可以先组装<code>list</code>或<code>tuple</code>，再通过*args传入：<code>func(*(1, 2, 3))</code>。</p>
